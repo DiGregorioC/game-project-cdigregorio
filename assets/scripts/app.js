@@ -5,35 +5,67 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+const events = require('./app.js')
 
 $(() => {
   // your JS code goes here
-  $('.1').click(function () {
-    $(this).html('<p>TEXT<p>')
+
+  let currentPlayer = 'X'
+
+  // const nextPlayer = () => {
+  //   if (currentPlayer === 'O') {
+  //     currentPlayer = 'X'
+  //   } else {
+  //     currentPlayer = 'O'
+  //   }
+  //   return currentPlayer
+  // }
+
+  let gameBoard = ['', '', '', '', '', '', '', '', '']
+
+  $('.0').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[0] = currentPlayer
+    console.log(gameBoard)
   })
 
-  $('.2').click(function () {
-    console.log('You clicked 2')
+  $('.1').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[1] = currentPlayer
   })
-  $('.3').click(function () {
-    console.log('You clicked 3')
+
+  $('.2').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[2] = currentPlayer
   })
-  $('.4').click(function () {
-    console.log('You clicked 4')
+
+  $('.3').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[3] = currentPlayer
   })
-  $('.5').click(function () {
-    console.log('You clicked 5')
+
+  $('.4').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[4] = currentPlayer
   })
-  $('.6').click(function () {
-    console.log('You clicked 6')
+
+  $('.5').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[5] = currentPlayer
   })
-  $('.7').click(function () {
-    console.log('You clicked 7')
+
+  $('.6').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[6] = currentPlayer
   })
-  $('.8').click(function () {
-    console.log('You clicked 8')
+
+  $('.7').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[7] = currentPlayer
   })
-  $('.9').click(function () {
-    console.log('You clicked 9')
+
+  $('.8').on('click', (event) => {
+    $(event.target).text(currentPlayer)
+    gameBoard[8] = currentPlayer
   })
 })
