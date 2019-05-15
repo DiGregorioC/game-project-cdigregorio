@@ -5,21 +5,22 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-const events = require('./app.js')
+const events = require('./events.js')
 
 $(() => {
   // your JS code goes here
   let turn = 0
   let gameOn = true
   let currentPlayer = 'X'
-  const changePlayerTurn = () => {
-    $('#current-turn').text(`${currentPlayer}'s Turn`)
-  }
 
   $('#current-turn').text(`${currentPlayer}'s Turn`)
   $('#game-status').text()
 
   const gameBoard = ['', '', '', '', '', '', '', '', '']
+
+  const changePlayerTurn = () => {
+    $('#current-turn').text(`${currentPlayer}'s Turn`)
+  }
 
   const nextPlayer = () => {
     if (currentPlayer === 'O') {
@@ -34,7 +35,6 @@ $(() => {
     if (turn >= 9) {
       gameOn = false
       $('#game-status').text('GAME OVER! ITS A DRAW!')
-      $(event.target).off()
     } else {
       gameOn = true
     }
@@ -48,6 +48,12 @@ $(() => {
     })
   }
 
+  const checkForWin = () => {
+    if (
+      gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'X'
+    ) $('#game-status').text('X Wins!')
+  }
+
   $('.0').on('click', (event) => {
     $(event.target).text(currentPlayer)
     gameBoard[0] = currentPlayer
@@ -58,6 +64,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     return turn
   })
 
@@ -70,6 +77,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     return turn
   })
 
@@ -81,6 +89,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -92,6 +101,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -103,6 +113,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -114,6 +125,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -125,6 +137,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -136,6 +149,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
   })
 
@@ -147,6 +161,7 @@ $(() => {
     changePlayerTurn()
     clickDiable()
     checkRound()
+    checkForWin()
     console.log(turn)
 
     return turn
