@@ -34,26 +34,29 @@ $(() => {
     if (turn >= 9) {
       gameOn = false
       $('#game-status').text('GAME OVER! ITS A DRAW!')
+      $(event.target).off()
     } else {
       gameOn = true
     }
   }
 
-  const checkForPiece = (i) => {
-    if (gameBoard[i] === 'X' || gameBoard[i] === 'O') {
-      console.log('Space Taken')
-    }
+  const clickDiable = () => {
+    gameBoard.forEach((i) => {
+      if (i === 'X' || i === 'O') {
+        $(event.target).off()
+      }
+    })
   }
 
   $('.0').on('click', (event) => {
     $(event.target).text(currentPlayer)
     gameBoard[0] = currentPlayer
-    checkForPiece()
     nextPlayer()
     console.log(gameBoard)
     console.log(turn)
     turn++
     changePlayerTurn()
+    clickDiable()
     checkRound()
     return turn
   })
@@ -65,6 +68,7 @@ $(() => {
     nextPlayer()
     console.log(turn)
     changePlayerTurn()
+    clickDiable()
     checkRound()
     return turn
   })
@@ -75,6 +79,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -85,6 +90,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -95,6 +101,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -105,6 +112,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -115,6 +123,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -125,6 +134,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
   })
@@ -135,6 +145,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    clickDiable()
     checkRound()
     console.log(turn)
 
