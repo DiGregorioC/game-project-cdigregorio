@@ -7,26 +7,19 @@
 // require('./example')
 const events = require('./app.js')
 
-
-
 $(() => {
   // your JS code goes here
   let turn = 0
+  let gameOn = true
   let currentPlayer = 'X'
   const changePlayerTurn = () => {
-    $('#current-turn').text(`It is ${currentPlayer}'s Turn`)
+    $('#current-turn').text(`${currentPlayer}'s Turn`)
   }
-  $('#current-turn').text(`It is ${currentPlayer}'s Turn`)
 
-  // if (turn === 2 || turn === 4 || turn === 6 || turn === 8) {
-  //   currentPlayer = 'O'
-  // } else {
-  //   currentPlayer = 'X'
-  // }
+  $('#current-turn').text(`${currentPlayer}'s Turn`)
+  $('#game-status').text()
 
-  if (turn === 9) {
-    console.log('game over')
-  }
+  const gameBoard = ['', '', '', '', '', '', '', '', '']
 
   const nextPlayer = () => {
     if (currentPlayer === 'O') {
@@ -37,16 +30,31 @@ $(() => {
     return currentPlayer
   }
 
-  let gameBoard = ['', '', '', '', '', '', '', '', '']
+  const checkRound = () => {
+    if (turn >= 9) {
+      gameOn = false
+      $('#game-status').text('GAME OVER! ITS A DRAW!')
+    } else {
+      gameOn = true
+    }
+  }
+
+  const checkForPiece = (i) => {
+    if (gameBoard[i] === 'X' || gameBoard[i] === 'O') {
+      console.log('Space Taken')
+    }
+  }
 
   $('.0').on('click', (event) => {
     $(event.target).text(currentPlayer)
     gameBoard[0] = currentPlayer
+    checkForPiece()
     nextPlayer()
     console.log(gameBoard)
     console.log(turn)
     turn++
     changePlayerTurn()
+    checkRound()
     return turn
   })
 
@@ -57,6 +65,7 @@ $(() => {
     nextPlayer()
     console.log(turn)
     changePlayerTurn()
+    checkRound()
     return turn
   })
 
@@ -66,6 +75,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -75,6 +85,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -84,6 +95,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -93,6 +105,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -102,6 +115,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -111,6 +125,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
   })
 
@@ -120,6 +135,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
+    checkRound()
     console.log(turn)
 
     return turn
