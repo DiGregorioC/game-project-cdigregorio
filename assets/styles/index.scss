@@ -48,16 +48,28 @@ section {
 
   }
 }
+.sign-up {
+  display: flex;
+  flex-direction: column;
+}
 
 .game {
   display: flex;
   width: 10rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .new-game {
   display: flex;
   justify-content: center;
   width: 40rem;
+}
+
+.success {
+  color: #10a50b;
 }
 
 .user-controls {

@@ -23,7 +23,37 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 }
 
+const onChangePassword = event => {
+  event.preventDefault()
+  console.log('signin')
+  const form = (event.target)
+  const formData = getFormFields(form)
+
+  console.log('sign in', formData)
+  api.changePassword(formData)
+    .then(ui.onChangePWSuccess)
+    .catch(ui.onChangePWFailure)
+}
+
+const onSignOut = event => {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
+}
+
+const onNewGame = event => {
+  event.preventDefault(
+    api.newGame()
+      .then(ui.onNewGameSuccess)
+      .catch(ui.onNewGameFailure)
+  )
+}
+
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePassword,
+  onSignOut,
+  onNewGame
 }

@@ -13,9 +13,30 @@ $(() => {
   let gameOn = true
   let currentPlayer = 'X'
 
+  $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
+  $('#change-pw').on('submit', events.onChangePassword)
+  $('#sign-out').on('submit', events.onSignOut)
+  // $('.new-game').on('click', events.onNewGame)
+  $('#new-game').on('submit', (event) => {
+    event.preventDefault()
+    gameBoard = ['', '', '', '', '', '', '', '', '']
+    turn = 0
+    currentPlayer = 'X'
+    $('.0').text('')
+    $('.1').text('')
+    $('.2').text('')
+    $('.3').text('')
+    $('.4').text('')
+    $('.5').text('')
+    $('.6').text('')
+    $('.7').text('')
+    $('.8').text('')
+  })
+
   $('#current-turn').text(`${currentPlayer}'s Turn`)
 
-  const gameBoard = ['', '', '', '', '', '', '', '', '']
+  let gameBoard = ['', '', '', '', '', '', '', '', '']
 
   const changePlayerTurn = () => {
     $('#current-turn').text(`${currentPlayer}'s Turn`)
@@ -160,9 +181,6 @@ $(() => {
       return gameOn
     }
   }
-
-  $('#sign-up').on('submit', events.onSignUp)
-  $('#sign-in').on('submit', events.onSignIn)
 
   $('.0').on('click', (event) => {
     if ($(event.target).text() === '') {
