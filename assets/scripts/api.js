@@ -60,10 +60,31 @@ const newGame = formData => {
   })
 }
 
+const index = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const show = (id) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  newGame
+  newGame,
+  index,
+  show
 }

@@ -22,6 +22,8 @@ const onSignInSuccess = responseData => {
   $('.container').removeClass('hidden')
   $('#change-pw').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
+  $('#index-games').removeClass('hidden')
+  $('#show-game').removeClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#sign-in').addClass('hidden')
   $('#message').text('Signed In, Welcome Back!')
@@ -58,6 +60,7 @@ const onSignOutSuccess = responseData => {
   $('.container').addClass('hidden')
   $('#sign-up').removeClass('hidden')
   $('#sign-in').removeClass('hidden')
+  $('#index-games').addClass('hidden')
   $('#change-pw').addClass('hidden')
   $('#sign-out').addClass('hidden')
   $('#message').text('Sign Out Successfull! Come Back Soon!')
@@ -74,6 +77,44 @@ const onNewGameSuccess = responseData => {
   $('.box').on('click')
 }
 
+const onIndexSuccess = responseData => {
+  console.log('success', responseData)
+  $('#game-index').html('')
+  responseData.games.forEach(games => {
+    const gameIndex = `
+      <p>ID: ${games.id}</p>
+      <p>Game: ${games.cells}</p>
+      <p>Game Finished?: ${games.over}</p>
+      <p>Player ID: ${games.player_x.id}</p>
+      <p>Player Email: ${games.player_x.email}</p>
+      <hr>
+      `
+    $('#game-index').append(gameIndex)
+  })
+  $('#message').text('Game Started!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+}
+
+const onShowSuccess = responseData => {
+  console.log('success', responseData)
+  $('#game-index').html('')
+  const games = responseData.game
+  const gameIndex = `
+      <p>ID: ${games.id}</p>
+      <p>Game: ${games.cells}</p>
+      <p>Game Finished?: ${games.over}</p>
+      <p>Player ID: ${games.player_x.id}</p>
+      <p>Player Email: ${games.player_x.email}</p>
+      <hr>
+      `
+  $('#game-index').html(gameIndex)
+  $('#message').text('Game Started!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
@@ -82,5 +123,7 @@ module.exports = {
   onChangePWFailure,
   onSignInFailure,
   onSignUpFailure,
-  onNewGameSuccess
+  onNewGameSuccess,
+  onIndexSuccess,
+  onShowSuccess
 }

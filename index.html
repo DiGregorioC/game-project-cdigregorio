@@ -37,6 +37,19 @@
           </form>
 
           <hr>
+          <form class ="hidden" id='index-games'>
+            <h3>Show Game History</h3>
+            <input type="submit" value="Show Games History" />
+          </form>
+
+          <hr>
+          <form class ="hidden" id="show-game">
+            <h3>Show Game History</h3>
+            <input type="text" name="games[id]" placeholder="Enter Game Id">
+            <input type="submit" value="Find a Game" />
+          </form>
+
+          <hr>
           <form class ="hidden" id='change-pw'>
             <h3>Change Password</h3>
             <input type='password' name="passwords[old]" placeholder="Current Password" />
@@ -80,6 +93,9 @@
         <form id='new-game'>
         <input type ="submit" class="new-game"  value="New Game" />
         </form>
+
+
+        <h6 id="game-index"></h6>
 
       </div>
 

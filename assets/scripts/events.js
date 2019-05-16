@@ -43,11 +43,26 @@ const onSignOut = event => {
 }
 
 const onNewGame = event => {
-  event.preventDefault(
-    api.newGame()
-      .then(ui.onNewGameSuccess)
-      .catch(ui.onNewGameFailure)
-  )
+  event.preventDefault()
+  api.newGame()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
+
+const onIndexGames = (event) => {
+  event.preventDefault()
+  api.index()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
+}
+
+const onShowGames = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.show(formData.games.id)
+    .then(ui.onShowSuccess)
+    .catch(ui.onShowFailure)
 }
 
 module.exports = {
@@ -55,5 +70,7 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onIndexGames,
+  onShowGames
 }

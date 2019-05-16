@@ -18,20 +18,16 @@ $(() => {
   $('#change-pw').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
   // $('.new-game').on('click', events.onNewGame)
+  $('#show-game').on('submit', events.onShowGames)
+  $('#index-games').on('submit', events.onIndexGames)
   $('#new-game').on('submit', (event) => {
     event.preventDefault()
     gameBoard = ['', '', '', '', '', '', '', '', '']
     turn = 0
     currentPlayer = 'X'
-    $('.0').text('')
-    $('.1').text('')
-    $('.2').text('')
-    $('.3').text('')
-    $('.4').text('')
-    $('.5').text('')
-    $('.6').text('')
-    $('.7').text('')
-    $('.8').text('')
+    $('.0, .1, .2, .3, .4, .5, .6, .7, .8').text('')
+    $('.0, .1, .2, .3, .4, .5, .6, .7, .8').removeAttr('style')
+    gameOn = true
   })
 
   $('#current-turn').text(`${currentPlayer}'s Turn`)
