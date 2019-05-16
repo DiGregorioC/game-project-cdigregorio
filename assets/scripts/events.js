@@ -25,11 +25,8 @@ const onSignIn = event => {
 
 const onChangePassword = event => {
   event.preventDefault()
-  console.log('signin')
   const form = (event.target)
   const formData = getFormFields(form)
-
-  console.log('sign in', formData)
   api.changePassword(formData)
     .then(ui.onChangePWSuccess)
     .catch(ui.onChangePWFailure)
@@ -53,7 +50,6 @@ const onIndexGames = (event) => {
   event.preventDefault()
   api.index()
     .then(ui.onIndexSuccess)
-    .catch(ui.onIndexFailure)
 }
 
 const onShowGames = (event) => {

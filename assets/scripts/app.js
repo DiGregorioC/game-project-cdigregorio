@@ -68,13 +68,13 @@ $(() => {
     }
   }
 
-  const reClickDisable = () => {
-    gameBoard.forEach((i) => {
-      if (i === 'X' || i === 'O') {
-        $(event.target).off('click')
-      }
-    })
-  }
+  // const reClickDisable = () => {
+  //   gameBoard.forEach((i) => {
+  //     if (i === 'X' || i === 'O') {
+  //       $(event.target).off('click')
+  //     }
+  //   })
+  // }
 
   const checkForWin = () => {
     if (
@@ -83,7 +83,6 @@ $(() => {
       $('#current-turn').text('X Wins!\n New Game?')
       $('.0, .3, .6').css('background-color', 'green')
       gameOn = false
-      console.log(gameOn)
       return gameOn
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'X'
     ) {
@@ -191,7 +190,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.1').on('click', (event) => {
@@ -207,7 +205,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.2').on('click', (event) => {
@@ -223,7 +220,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.3').on('click', (event) => {
@@ -239,7 +235,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.4').on('click', (event) => {
@@ -255,7 +250,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.5').on('click', (event) => {
@@ -271,7 +265,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.6').on('click', (event) => {
@@ -287,7 +280,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.7').on('click', (event) => {
@@ -303,7 +295,6 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 
   $('.8').on('click', (event) => {
@@ -319,6 +310,5 @@ $(() => {
     } else {
       $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
     }
-    console.log(turn)
   })
 })

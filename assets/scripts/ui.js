@@ -3,7 +3,6 @@
 const store = require('./store.js')
 
 const onSignUpSuccess = responseData => {
-  console.log('success', responseData)
   $('#message').text('Signed up Successfully! Please log in to Play!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -18,7 +17,6 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  console.log('success', responseData)
   $('.container').removeClass('hidden')
   $('#change-pw').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
@@ -41,7 +39,6 @@ const onSignInFailure = responseData => {
 }
 
 const onChangePWSuccess = responseData => {
-  console.log('success', responseData)
   $('#message').text('Password Changed Successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -56,7 +53,6 @@ const onChangePWFailure = responseData => {
 }
 
 const onSignOutSuccess = responseData => {
-  console.log('success', responseData)
   $('.container').addClass('hidden')
   $('#sign-up').removeClass('hidden')
   $('#sign-in').removeClass('hidden')
@@ -70,7 +66,6 @@ const onSignOutSuccess = responseData => {
 }
 
 const onNewGameSuccess = responseData => {
-  console.log('success', responseData)
   $('#message').text('Game Started!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -78,26 +73,30 @@ const onNewGameSuccess = responseData => {
 }
 
 const onIndexSuccess = responseData => {
-  console.log('success', responseData)
   $('#game-index').html('')
-  responseData.games.forEach(games => {
-    const gameIndex = `
+  if (responseData.games.length > 0) {
+    responseData.games.forEach(games => {
+      const gameIndex = `
       <p>ID: ${games.id}</p>
       <p>Game: ${games.cells}</p>
       <p>Game Finished?: ${games.over}</p>
       <p>Player ID: ${games.player_x.id}</p>
       <p>Player Email: ${games.player_x.email}</p>
-      <hr>
-      `
-    $('#game-index').append(gameIndex)
-  })
-  $('#message').text('Game Started!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+      <hr>`
+      $('#game-index').append(gameIndex)
+    })
+    $('#message').text('Success! Games are Below')
+    $('#message').removeClass()
+    $('#message').addClass('success')
+  } else {
+    $('#message').text('No Games to Display! Play Some First :)')
+    $('#message').removeClass()
+    $('#message').addClass('warning')
+    $('form').trigger('reset')
+  }
 }
 
 const onShowSuccess = responseData => {
-  console.log('success', responseData)
   $('#game-index').html('')
   const games = responseData.game
   const gameIndex = `
@@ -106,12 +105,18 @@ const onShowSuccess = responseData => {
       <p>Game Finished?: ${games.over}</p>
       <p>Player ID: ${games.player_x.id}</p>
       <p>Player Email: ${games.player_x.email}</p>
-      <hr>
-      `
+      <hr>`
   $('#game-index').html(gameIndex)
-  $('#message').text('Game Started!')
+  $('#message').text('Success! Your Game is Below')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('form').trigger('reset')
+}
+
+const onShowFailure = responseData => {
+  $('#message').text('Invalid ID, Please Try again!')
+  $('#message').removeClass()
+  $('#message').addClass('warning')
   $('form').trigger('reset')
 }
 
@@ -125,5 +130,6 @@ module.exports = {
   onSignUpFailure,
   onNewGameSuccess,
   onIndexSuccess,
-  onShowSuccess
+  onShowSuccess,
+  onShowFailure
 }
