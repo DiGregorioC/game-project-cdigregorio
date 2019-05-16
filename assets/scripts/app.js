@@ -33,22 +33,28 @@ $(() => {
   const checkRound = () => {
     if (turn >= 9) {
       gameOn = false
-      $('#current-turn').text('GAME OVER! ITS A DRAW!')
-    } else {
-      gameOn = true
+      $('#current-turn').text(`Its a Draw!\nNew Game?`)
     }
   }
 
-  // const diableAllClicks = () => {
-  //   gameBoard.forEach(() =>
-  //     $(event.target).off())
-  // }
+  const gameOver = () => {
+    if (gameOn === false) {
+      $('.0').off('click')
+      $('.1').off('click')
+      $('.2').off('click')
+      $('.3').off('click')
+      $('.4').off('click')
+      $('.5').off('click')
+      $('.6').off('click')
+      $('.7').off('click')
+      $('.8').off('click')
+    }
+  }
 
-
-  const drawDisable = () => {
+  const reClickDisable = () => {
     gameBoard.forEach((i) => {
       if (i === 'X' || i === 'O') {
-        $(event.target).off()
+        $(event.target).off('click')
       }
     })
   }
@@ -57,165 +63,248 @@ $(() => {
     if (
       gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.0, .3, .6').css('background-color', 'green')
+      gameOn = false
+      console.log(gameOn)
+      return gameOn
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.1, .4, .7').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.2, .5, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.0, .1, .2').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.3, .4, .5').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.6, .7, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.0, .4, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'X'
     ) {
-      $('#current-turn').text('X Wins!')
+      $('#current-turn').text('X Wins!\n New Game?')
+      $('.2, .4, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.0, .3, .6').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'O'
     ) {
-      $('#game-status').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.1, .4, .7').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.2, .5, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.0, .1, .2').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.3 .4, .5').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.6, .7, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.0, .4, .8').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'O'
     ) {
-      $('#current-turn').text('O Wins!')
+      $('#current-turn').text('O Wins!\n New Game?')
+      $('.2, .4, .6').css('background-color', 'green')
+      gameOn = false
+      return gameOn
     }
   }
 
+  $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
+
   $('.0').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[0] = currentPlayer
-    nextPlayer()
-    console.log(gameBoard)
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[0] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
-    turn++
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
-    return turn
   })
 
   $('.1').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[1] = currentPlayer
-    turn++
-    nextPlayer()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[1] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
-    return turn
   })
 
   $('.2').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[2] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[2] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.3').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[3] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[3] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.4').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[4] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[4] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.5').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[5] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[5] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.6').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[6] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[6] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.7').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[7] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[7] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
   })
 
   $('.8').on('click', (event) => {
-    $(event.target).text(currentPlayer)
-    gameBoard[8] = currentPlayer
-    turn++
-    nextPlayer()
-    changePlayerTurn()
-    drawDisable()
-    checkRound()
-    checkForWin()
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
+      gameBoard[8] = currentPlayer
+      turn++
+      nextPlayer()
+      changePlayerTurn()
+      checkRound()
+      checkForWin()
+      gameOver()
+    } else {
+      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+    }
     console.log(turn)
-
-    return turn
   })
 })

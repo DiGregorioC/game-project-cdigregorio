@@ -1,14 +1,29 @@
 
+const getFormFields = require('../../lib/get-form-fields.js')
+const api = require('./api.js')
+const ui = require('./ui.js')
 
-const checkForWin = (gameBoard) => {
-  if (
-    gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === "X"
-  ) console.log('X Wins!')
+const onSignUp = event => {
+  event.preventDefault()
+  const form = (event.target)
+  const formData = getFormFields(form)
+
+  api.signUp(formData)
+    .then(ui.onSignUpSuccess)
+    .catch(ui.onSignUpFailure)
 }
 
+const onSignIn = event => {
+  event.preventDefault()
+  const form = (event.target)
+  const formData = getFormFields(form)
 
-
+  api.signIn(formData)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
+}
 
 module.exports = {
-  checkForWin
+  onSignUp,
+  onSignIn
 }

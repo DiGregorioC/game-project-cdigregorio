@@ -42,11 +42,11 @@ section {
   display: flex;
   height: 80px;
   justify-content: center;
-}
+  &:hover {
+    background-color: #7ba6ed;
+    cursor: pointer;
 
-.user-controls {
-  width: 30%;
-  background-color: #c7d6ca;
+  }
 }
 
 .game {
@@ -58,4 +58,17 @@ section {
   display: flex;
   justify-content: center;
   width: 40rem;
+}
+
+.user-controls {
+  width: 30%;
+  background-color: #c7d6ca;
+}
+
+.warning {
+  color: #F00;
+}
+
+.win{
+  background-color: green;
 }
