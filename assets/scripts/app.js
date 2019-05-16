@@ -14,7 +14,6 @@ $(() => {
   let currentPlayer = 'X'
 
   $('#current-turn').text(`${currentPlayer}'s Turn`)
-  $('#game-status').text()
 
   const gameBoard = ['', '', '', '', '', '', '', '', '']
 
@@ -34,13 +33,19 @@ $(() => {
   const checkRound = () => {
     if (turn >= 9) {
       gameOn = false
-      $('#game-status').text('GAME OVER! ITS A DRAW!')
+      $('#current-turn').text('GAME OVER! ITS A DRAW!')
     } else {
       gameOn = true
     }
   }
 
-  const clickDiable = () => {
+  // const diableAllClicks = () => {
+  //   gameBoard.forEach(() =>
+  //     $(event.target).off())
+  // }
+
+
+  const drawDisable = () => {
     gameBoard.forEach((i) => {
       if (i === 'X' || i === 'O') {
         $(event.target).off()
@@ -51,7 +56,54 @@ $(() => {
   const checkForWin = () => {
     if (
       gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'X'
-    ) $('#game-status').text('X Wins!')
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'X'
+    ) {
+      $('#current-turn').text('X Wins!')
+    } else if (gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'O'
+    ) {
+      $('#game-status').text('O Wins!')
+    } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'O'
+    ) {
+      $('#current-turn').text('O Wins!')
+    }
   }
 
   $('.0').on('click', (event) => {
@@ -62,7 +114,7 @@ $(() => {
     console.log(turn)
     turn++
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     return turn
@@ -75,7 +127,7 @@ $(() => {
     nextPlayer()
     console.log(turn)
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     return turn
@@ -87,7 +139,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -99,7 +151,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -111,7 +163,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -123,7 +175,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -135,7 +187,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -147,7 +199,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
@@ -159,7 +211,7 @@ $(() => {
     turn++
     nextPlayer()
     changePlayerTurn()
-    clickDiable()
+    drawDisable()
     checkRound()
     checkForWin()
     console.log(turn)
