@@ -46,6 +46,12 @@ const onNewGame = event => {
     .catch(ui.onNewGameFailure)
 }
 
+const onUpdateGame = (value, index) => {
+  api.updateGame(value, index)
+    .then(ui.onUpdateSuccess)
+    .catch(ui.onUpdateFailure)
+}
+
 const onIndexGames = (event) => {
   event.preventDefault()
   api.index()
@@ -68,5 +74,6 @@ module.exports = {
   onSignOut,
   onNewGame,
   onIndexGames,
-  onShowGames
+  onShowGames,
+  onUpdateGame
 }

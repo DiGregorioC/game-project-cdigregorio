@@ -17,7 +17,7 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  $('.container').removeClass('hidden')
+  $('#new-game').removeClass('hidden')
   $('#change-pw').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#index-games').removeClass('hidden')
@@ -28,7 +28,7 @@ const onSignInSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
-
+  console.log('store is', store)
   store.user = responseData.user
 }
 const onSignInFailure = responseData => {
@@ -54,8 +54,10 @@ const onChangePWFailure = responseData => {
 
 const onSignOutSuccess = responseData => {
   $('.container').addClass('hidden')
+  $('#new-game').addClass('hidden')
   $('#sign-up').removeClass('hidden')
   $('#sign-in').removeClass('hidden')
+  $('#show-game').addClass('hidden')
   $('#index-games').addClass('hidden')
   $('#change-pw').addClass('hidden')
   $('#sign-out').addClass('hidden')
@@ -66,26 +68,19 @@ const onSignOutSuccess = responseData => {
 }
 
 const onNewGameSuccess = responseData => {
-  $('#message').text('Game Started!')
+  store.game = responseData.game
+  console.log('store is', store)
+  $('#message').text('New Game!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('.box').on('click')
 }
 
 const onIndexSuccess = responseData => {
   $('#game-index').html('')
   if (responseData.games.length > 0) {
-    responseData.games.forEach(games => {
-      const gameIndex = `
-      <p>ID: ${games.id}</p>
-      <p>Game: ${games.cells}</p>
-      <p>Game Finished?: ${games.over}</p>
-      <p>Player ID: ${games.player_x.id}</p>
-      <p>Player Email: ${games.player_x.email}</p>
-      <hr>`
-      $('#game-index').append(gameIndex)
-    })
-    $('#message').text('Success! Games are Below')
+    const allGamesLength = responseData.games.length
+    $('#game-index').append(`You've Played ${allGamesLength} Games!`)
+    $('#message').text('Success! Your Info is Below')
     $('#message').removeClass()
     $('#message').addClass('success')
   } else {
@@ -120,6 +115,19 @@ const onShowFailure = responseData => {
   $('form').trigger('reset')
 }
 
+const onUpdateSuccess = responseData => {
+  $('#message').text('')
+  $('#message').removeClass()
+  $('form').trigger('reset')
+  store.game = responseData.game
+  console.log(store.game)
+  console.log(responseData, 'successful patch!')
+}
+
+//   let storeData = responseData.store.game
+//   console.log(storeData)
+// }
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
@@ -131,5 +139,6 @@ module.exports = {
   onNewGameSuccess,
   onIndexSuccess,
   onShowSuccess,
-  onShowFailure
+  onShowFailure,
+  onUpdateSuccess
 }

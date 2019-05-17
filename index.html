@@ -27,49 +27,49 @@
               placeholder="Confirm Password">
             <input type = "submit" value="Sign Up" />
           </form>
+          <br>
 
-          <hr>
           <form id="sign-in">
           <h2> Sign In </h2>
             <input type="text" name="credentials[email]" placeholder="Enter Email Address">
             <input type ="password" name = "credentials[password]" placeholder="Password">
             <input type = "submit" value="Sign In" />
           </form>
+          <br>
 
-          <hr>
           <form class ="hidden" id='index-games'>
             <h3>Show Game History</h3>
             <input type="submit" value="Show Games History" />
           </form>
 
-          <hr>
           <form class ="hidden" id="show-game">
             <h3>Show Game History</h3>
             <input type="text" name="games[id]" placeholder="Enter Game Id">
             <input type="submit" value="Find a Game" />
           </form>
+          <br>
 
-          <hr>
           <form class ="hidden" id='change-pw'>
             <h3>Change Password</h3>
             <input type='password' name="passwords[old]" placeholder="Current Password" />
             <input type='password' name="passwords[new]" placeholder="New Password" />
             <input type="submit" value="Change Password" />
           </form>
+          <br>
 
-          <hr>
           <form class ="hidden" id='sign-out'>
             <h3>Sign Out</h3>
             <input type="submit" value="Sign Out" />
           </form>
+          <br>
 
-          <hr>
         </section>
+        <br>
         <section class = "game"></section>
         <div class="container hidden">
 
         <div class ="row">
-          <div class="0 col-3 box primary-color"></div>
+          <div class="0 col-3 box primary-color" data-index="0"></div>
           <div class="1 col-3 box primary-color"></div>
           <div class="2 col-3 box primary-color"></div>
         </div>
@@ -90,14 +90,22 @@
         <h4 class="warning" id="alert"></h4>
         <h4 id="current-turn"></h4>
 
-        <form id='new-game'>
-        <input type ="submit" class="new-game"  value="New Game" />
-        </form>
-
-
-        <h6 id="game-index"></h6>
 
       </div>
+      <div class= "newgame-results">
+
+      <br>
+      <br>
+      <br>
+      <input type ="submit" id="new-game" value="New Game" />
+      <br>
+    <form>
+      <h6 id="game-index"></h6>
+      </form>
+    </div>
+
+
+
 
     </main>
     </body>

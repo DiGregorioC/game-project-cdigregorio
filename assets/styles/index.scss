@@ -22,7 +22,7 @@ header {
 
 main {
   display: flex;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 section {
@@ -46,8 +46,10 @@ section {
     background-color: #7ba6ed;
     cursor: pointer;
 
+
   }
 }
+
 .sign-up {
   display: flex;
   flex-direction: column;

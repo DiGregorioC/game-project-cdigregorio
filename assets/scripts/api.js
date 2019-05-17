@@ -50,6 +50,25 @@ const newGame = formData => {
   })
 }
 
+const updateGame = (value, index) => {
+  return $.ajax({
+    url: config.apiUrl + `/games/` + store.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: value
+        },
+        over: false
+      }
+    }
+  })
+}
+
 const index = () => {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -76,5 +95,6 @@ module.exports = {
   signOut,
   newGame,
   index,
-  show
+  show,
+  updateGame
 }
