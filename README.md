@@ -24,13 +24,15 @@
  - Additionally, I as I began to set up hidden and unhidden components for logged in/ not logged in, I should have made a more comprehensive list of each object. This also would have allowed me to use less repetition, and have cleaner/ less unnecessary code.
  
  # Future Goals
+ 
   As I continue to work on and update this project, I have the below goals I would like to accomplish:
-    - Refactoring code to produce more DRY code, and reduce repeition
-    - Work on implementing multi-player, playing against and AI, and allowing user to switch starting player
-    - Work on creating a more mobile first design
-    - Work on creating more responsive design, and cleaner CSS
-    - Allowing the user to see their win/loss streak
-    - Allowing the user to resume an unfinished game
+  
+  - Refactoring code to produce more DRY code, and reduce repeition
+  - Work on implementing multi-player, playing against and AI, and allowing user to switch starting player
+  - Work on creating a more mobile first design
+  - Work on creating more responsive design, and cleaner CSS
+  - Allowing the user to see their win/loss streak
+  - Allowing the user to resume an unfinished game
    
 # Project User Stories and Wireframes
 
