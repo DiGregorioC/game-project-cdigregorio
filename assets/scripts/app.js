@@ -24,6 +24,7 @@ $(() => {
       .then(function (responseData) {
         defaultState()
         $('.cur-turn').removeClass('hidden')
+        $('#win').removeClass('hidden')
         $('#game-index').html('')
         $('#win').text('')
         $('#alert').text('')
@@ -65,7 +66,7 @@ $(() => {
   }
 
   const checkRound = () => {
-    if (turn >= 9) {
+    if (turn >= 9 && over === false) {
       over = true
       $('#win').text(`Its a Draw! New Game?`)
       $('.cur-turn').addClass('hidden')
