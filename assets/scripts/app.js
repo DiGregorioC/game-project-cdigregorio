@@ -68,6 +68,7 @@ $(() => {
     if (turn >= 9) {
       over = true
       $('#win').text(`Its a Draw! New Game?`)
+      $('.cur-turn').addClass('hidden')
     }
   }
 
