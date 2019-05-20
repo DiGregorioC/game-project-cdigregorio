@@ -16,11 +16,11 @@
 <body>
   <header>
     <h2>CDiGregorio: Tic Tac Toe</h2>
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#projectInfoModal">
   About the Project
 </button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+<div class="modal fade" id="projectInfoModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -136,8 +136,8 @@
     </section>
     <br>
     <section class="game"></section>
-    <h1 class="welcome">Please Sign in To Play!</h1>
     <div class="games justify-content-center">
+      <h1 class="welcome">Please Sign in To Play!</h1>
       <div class="row offset-2">
       <input class="hidden new-button btn-success rounded" type="submit" id="new-game" value="New Game" />
     </div>
@@ -162,14 +162,12 @@
           <div class="8 col-4 box primary-color rounded"></div>
         </div>
         <hr>
-
-        <h4 class="warning" id="alert"></h4>
-
-        <br>
       </div>
       <div class="row new-game-results hidden offset-5">
         <br>
+        <h4 class="warning" id="alert"></h4>
         <h4 class="cur-turn" id="current-turn"></h4>
+        <hr>
         <h6 id="game-index"></h6>
       </div>
     </div>

@@ -98,10 +98,17 @@ const onShowSuccess = responseData => {
   const games = responseData.game
   const gameIndex = `
       <p>ID: ${games.id}</p>
-      <p>Game:
-      <br>${games.cells[0]} ${games.cells[1]} ${games.cells[2]}
-      <br> ${games.cells[3]} ${games.cells[4]} ${games.cells[5]}
-      <br> ${games.cells[6]} ${games.cells[7]} ${games.cells[8]}</p>
+      <table> Game:
+      <tr>
+      <td>${games.cells[0]}</td> <td>${games.cells[1]}</td> <td>${games.cells[2]}</td>
+      </tr>
+      <tr>
+      <td>${games.cells[3]}</td>  <td>${games.cells[4]}</td> <td>${games.cells[5]}</td>
+      </tr>
+      <tr>
+      <td>${games.cells[6]}</td> <td>${games.cells[7]}</td> <td>${games.cells[8]}</td>
+      </tr>
+      </table>
       <p>Game Finished?: ${games.over}</p>
       <p>Player ID: ${games.player_x.id}</p>
       <p>Player Email: ${games.player_x.email}</p>

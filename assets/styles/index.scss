@@ -16,7 +16,11 @@ h1 {
 }
 
 h4 {
-  width: 50rem;
+  width: 10rem;
+}
+
+h6 {
+  color: $header-text-color;
 }
 
 header {
@@ -28,6 +32,18 @@ header {
 main {
   display: flex;
   min-height: 100vh;
+}
+
+table,
+td {
+  background-color: $secondary;
+  border: 1px solid $white;
+  color: $font-color;
+  padding: 10px;
+  text-align: center;
+  table-layout: fixed;
+  height: 50px;
+  width: 100px;
 }
 
 section {
