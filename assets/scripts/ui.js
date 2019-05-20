@@ -17,7 +17,7 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  $('#win').text('')
+  $('#win').addClass('hidden')
   $('#new-game').removeClass('hidden')
   $('.new-game-results').removeClass('hidden')
   $('#change-pw').removeClass('hidden')
