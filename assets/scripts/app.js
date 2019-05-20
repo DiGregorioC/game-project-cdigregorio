@@ -141,7 +141,7 @@ $(() => {
       return over
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'O') {
       $('#win').text('O Wins! New Game?')
-      $('.3 .4, .5').css('background-color', 'green')
+      $('.3, .4, .5').css('background-color', 'green')
       over = true
       return over
     } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'O') {
