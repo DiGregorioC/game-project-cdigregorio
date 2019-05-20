@@ -4,6 +4,11 @@ $alt-color: $cyan;
 $body-bg-color: #ffce7c;
 $font-color: #000;
 $header-text-color: #fff;
+$game-color: #8c7cff;
+$hover-color: #7ba6ed;
+$user-controls: #ff8c7c;
+$warning: #f00;
+$success: #3f843c;
 
 body {
   background-color: $body-bg-color;
@@ -20,11 +25,11 @@ h4 {
 }
 
 h6 {
-  color: #8c7cff;
+  color: $game-color;
 }
 
 header {
-  background-color: #222;
+  background-color: $font-color;
   color: $header-text-color;
   padding: 1rem;
 }
@@ -36,13 +41,13 @@ main {
 
 table,
 td {
-  background-color: #8c7cff;
+  background-color: $game-color;
   border: 1px solid $white;
   color: $font-color;
-  padding: 10px;
-  text-align: center;
-  table-layout: fixed;
   height: 50px;
+  padding: 10px;
+  table-layout: fixed;
+  text-align: center;
   width: 100px;
 }
 
@@ -56,16 +61,17 @@ section {
 }
 
 .box {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 5vw;
-  background-color: #8c7cff;
+  background-color: $game-color;
   border: 1px solid $white;
   color: $font-color;
+  display: flex;
+  font-size: 5vw;
   height: 80px;
+  justify-content: center;
+
   &:hover {
-    background-color: #7ba6ed;
+    background-color: $hover-color;
     cursor: pointer;
   }
 }
@@ -81,7 +87,7 @@ section {
 
 .modal-body,
 .modal-title {
-  color: black;
+  color: $font-color;
 }
 
 .new-button {
@@ -94,19 +100,20 @@ section {
 }
 
 .success {
-  color: #10a50b;
+  color: $success;
 }
 
 .user-controls {
-  background-color: #ff8c7c;
-  width: 20vh;
-  border-right: 1px solid black;
+  background-color: $user-controls;
+  border-right: 1px solid $font-color;
+  width: 30%;
+
 }
 
 .warning {
-  color: #F00;
+  color: $warning;
 }
 
 .win {
-  background-color: green;
+  background-color: $success;
 }

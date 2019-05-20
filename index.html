@@ -62,7 +62,6 @@
       </div>
       <div class="modal-body">
         Cameron DiGregorio is a Software Engineering Fellow at General Assembly.
-      </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -83,9 +82,9 @@
               Sign Up ⇩
           </button>
           <div class="collapse" id="collapseSignUp">
-        <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address">
-        <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-        <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address" required>
+        <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
+        <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
         <input  class="btn btn-primary" type="submit" value="Sign Up" />
       </div>
       </div>
@@ -99,8 +98,8 @@
             Sign In ⇩
         </button>
         <div class="collapse" id="collapseSignIn">
-          <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address">
-          <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
+          <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address" required>
+          <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
           <input class="btn btn-primary" type="submit" value="Sign In" />
       </div>
       </div>
@@ -114,15 +113,15 @@
 
       <form class="hidden" id="show-game">
         <h3>View a Game Record</h3>
-        <input type="text" name="games[id]" placeholder="Enter Game Id">
+        <input type="number" class="form-control" name="games[id]" placeholder="Enter Game Id" required>
         <input type="submit" class="btn btn-info" value="Find a Game" />
       </form>
       <br>
 
       <form class="hidden" id='change-pw'>
         <h3>Change Password</h3>
-        <input type='password' name="passwords[old]" placeholder="Current Password" />
-        <input type='password' name="passwords[new]" placeholder="New Password" />
+        <input type='password' class="form-control" name="passwords[old]" placeholder="Current Password" required/>
+        <input type='password' class="form-control" name="passwords[new]" placeholder="New Password" required/>
         <input type="submit" class="btn btn-info" value="Change Password" />
       </form>
       <br>
