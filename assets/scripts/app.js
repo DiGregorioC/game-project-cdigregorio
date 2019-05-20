@@ -17,17 +17,13 @@ $(() => {
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-pw').on('submit', events.onChangePassword)
   $('#sign-out').on('submit', events.onSignOut)
-  // $('#new-game').on('submit', (event) => {
-  //   event.preventDefault()
-  //   events.onNewGame()
-  //   defaultState()
-  // })
   $('#show-game').on('submit', events.onShowGames)
   $('#index-games').on('submit', events.onIndexGames)
   $('#new-game').on('click', (event) => {
     api.newGame()
       .then(function (responseData) {
         defaultState()
+        $('.cur-turn').removeClass('hidden')
         $('#game-index').html('')
         $('#win').text('')
         $('#alert').text('')
@@ -82,92 +78,103 @@ $(() => {
     ) {
       $('#win').text('X Wins! New Game?')
       $('.0, .3, .6').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.1, .4, .7').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.2, .5, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.0, .1, .2').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.3, .4, .5').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.6, .7, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.0, .4, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'X') {
       $('#win').text('X Wins! New Game?')
       $('.2, .4, .6').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] && gameBoard[0] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.0, .3, .6').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.1, .4, .7').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] && gameBoard[2] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.2, .5, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] && gameBoard[0] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.0, .1, .2').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] && gameBoard[3] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.3, .4, .5').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] && gameBoard[6] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.6, .7, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] && gameBoard[0] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.0, .4, .8').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     } else if (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] && gameBoard[2] === 'O') {
       $('#win').text('O Wins! New Game?')
       $('.2, .4, .6').css('background-color', 'green')
+      $('.cur-turn').addClass('hidden')
       over = true
       return over
     }
   }
 
   // Click Handlers for each Space
-
-  // Created a onUpdateGame in events, that takes the currentplayer variabel and
-  // the idex of the space. It passes to the events, which passes it to the API
-  // which wants those two things, plus an over
-  // store.game, can be used once its been defined. Can also use store.game.over, etc
   $('.0').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
       $(event.target).text(currentPlayer)

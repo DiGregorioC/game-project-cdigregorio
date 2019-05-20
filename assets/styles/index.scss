@@ -31,7 +31,7 @@ h6 {
 header {
   background-color: $font-color;
   color: $header-text-color;
-  padding: 1rem;
+  padding: 5px;
 }
 
 main {
@@ -76,6 +76,10 @@ section {
   }
 }
 
+.btn-secondary {
+  height: 2rem;
+}
+
 .games {
   width: 30rem;
 }
@@ -83,6 +87,10 @@ section {
 
 .hidden {
   display: none;
+}
+
+.image {
+  opacity: .5;
 }
 
 .modal-body,

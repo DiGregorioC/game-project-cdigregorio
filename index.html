@@ -15,7 +15,7 @@
 
 <body>
   <header>
-    <h2>CDiGregorio: Tic Tac Toe</h2>
+    <h3>CDiGregorio: Tic Tac Toe</h3>
 
 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#projectInfoModal">
   About the Project
@@ -32,13 +32,14 @@
       <div class="modal-body">
         At a high level, here are the goals developers had for this project:
         <ul>
+          <br>
           <li>Build a web application from scratch, without a starter codebase</li>
         <li>Use your programming skills to map out the game logic for a simple game like Tic Tac Toe</li>
         <li>Separate HTML, CSS, and JavaScript files in your application</li>
         <li>Build an application to a spec that someone else gives you</li>
         <li>Build a dynamic game that allows a user to play tic tac toe against themself</li>
         <li>Craft a readme.md file that explains your app to the world</li>
-        <li>Communicate with a back-end to store the state of your game.</li>
+        <li>Communicate with a back-end to store the state of your game</li>
       </ul>
       </div>
       <div class="modal-footer">
@@ -61,7 +62,10 @@
         </button>
       </div>
       <div class="modal-body">
-        Cameron DiGregorio is a Software Engineering Fellow at General Assembly.
+        Cameron DiGregorio is a Software Engineering Fellow at General Assembly
+        <ul>
+          <br>
+          <li> <a href="https://www.linkedin.com/in/cdigregorio/">View My LinkedIn</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -76,7 +80,7 @@
 
       <h5 id='message'>Welcome! </h5>
       <form id="sign-up">
-        <h2> Sign Up </h2>
+        <h3> Sign Up </h3>
         <div class="dropdown">
           <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseExample">
               Sign Up ⇩
@@ -92,7 +96,7 @@
       <br>
 
       <form id="sign-in">
-        <h2> Sign In </h2>
+        <h3> Sign In </h3>
         <div class="dropdown">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseExample">
             Sign In ⇩
@@ -106,20 +110,20 @@
       </form>
 
       <form class="hidden" id='index-games'>
-        <h3>Show Game History</h3>
+        <h4>Show Game History</h4>
         <input type="submit" class="btn btn-info" value="Show Games History" />
       </form>
       <br>
 
       <form class="hidden" id="show-game">
-        <h3>View a Game Record</h3>
+        <h4>View a Game Record</h4>
         <input type="number" class="form-control" name="games[id]" placeholder="Enter Game Id" required>
         <input type="submit" class="btn btn-info" value="Find a Game" />
       </form>
       <br>
 
       <form class="hidden" id='change-pw'>
-        <h3>Change Password</h3>
+        <h4>Change Password</h4>
         <input type='password' class="form-control" name="passwords[old]" placeholder="Current Password" required/>
         <input type='password' class="form-control" name="passwords[new]" placeholder="New Password" required/>
         <input type="submit" class="btn btn-info" value="Change Password" />
@@ -127,7 +131,7 @@
       <br>
 
       <form class="hidden" id='sign-out'>
-        <h3>Sign Out</h3>
+        <h4>Sign Out</h4>
         <input type="submit" class="btn btn-danger" value="Sign Out" />
       </form>
       <br>
@@ -136,7 +140,9 @@
     <br>
     <section class="game text-center"></section>
     <div class="games text-center offset-2">
-      <h1 class="welcome">Please Sign in To Play!</h1>
+      <h1 class="welcome">Welcome to Tic-Tac-Toe!</h1>
+        <h2 class="welcome">Please Sign in To Play!</h2>
+        <img class="welcome rounded image" src="https://free-images.com/sm/5f9d/tic_tac_toe_noughts.jpg" alt="picture of tic-tac-toe" />
       <div class="row offset-2">
       <input class="hidden new-button btn-success rounded" type="submit" id="new-game" value="New Game" />
     </div>
