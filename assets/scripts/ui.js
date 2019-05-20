@@ -55,6 +55,7 @@ const onChangePWFailure = responseData => {
 }
 
 const onSignOutSuccess = responseData => {
+  $('#alert').text('')
   $('.container, #new-game').addClass('hidden')
   $('.new-game-results').addClass('hidden')
   $('#sign-up').removeClass('hidden')
