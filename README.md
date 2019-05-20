@@ -41,5 +41,5 @@
 - As a player, I want a new game button so I can play again
 - As a player, I want to see a live count of my wins/losses so I can know what my score is
 
-![[Imgur](https://i.imgur.com/QBoNVoV.png)
+![Imgur](https://i.imgur.com/QBoNVoV.png)
 ![Imgur](https://i.imgur.com/Of4OGhc.png)
