@@ -18,12 +18,14 @@ const onSignUpFailure = responseData => {
 
 const onSignInSuccess = responseData => {
   $('#new-game').removeClass('hidden')
+  $('.new-game-results').removeClass('hidden')
   $('#change-pw').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#index-games').removeClass('hidden')
   $('#show-game').removeClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#sign-in').addClass('hidden')
+  $('.welcome').addClass('hidden')
   $('#message').text('Signed In, Welcome Back!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -53,15 +55,18 @@ const onChangePWFailure = responseData => {
 }
 
 const onSignOutSuccess = responseData => {
-  $('.container').addClass('hidden')
-  $('#new-game').addClass('hidden')
+  $('.container, #new-game').addClass('hidden')
+  $('.new-game-results').addClass('hidden')
   $('#sign-up').removeClass('hidden')
   $('#sign-in').removeClass('hidden')
+  $('.welcome').removeClass('hidden')
   $('#show-game').addClass('hidden')
   $('#index-games').addClass('hidden')
   $('#change-pw').addClass('hidden')
   $('#sign-out').addClass('hidden')
   $('#message').text('Sign Out Successfull! Come Back Soon!')
+  $('#current-turn').text('')
+  $('#game-index').text('')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
@@ -70,9 +75,6 @@ const onSignOutSuccess = responseData => {
 const onNewGameSuccess = responseData => {
   store.game = responseData.game
   console.log('store is', store)
-  $('#message').text('New Game!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
 }
 
 const onIndexSuccess = responseData => {
@@ -96,7 +98,10 @@ const onShowSuccess = responseData => {
   const games = responseData.game
   const gameIndex = `
       <p>ID: ${games.id}</p>
-      <p>Game: ${games.cells}</p>
+      <p>Game:
+      <br>${games.cells[0]} ${games.cells[1]} ${games.cells[2]}
+      <br> ${games.cells[3]} ${games.cells[4]} ${games.cells[5]}
+      <br> ${games.cells[6]} ${games.cells[7]} ${games.cells[8]}</p>
       <p>Game Finished?: ${games.over}</p>
       <p>Player ID: ${games.player_x.id}</p>
       <p>Player Email: ${games.player_x.email}</p>

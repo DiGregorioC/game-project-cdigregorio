@@ -27,11 +27,16 @@ $(() => {
   $('#index-games').on('submit', events.onIndexGames)
   $('#new-game').on('click', (event) => {
     api.newGame()
-      .then(function(responseData) {
+      .then(function (responseData) {
         defaultState()
+        $('#alert').text('')
         $('.box').text('')
         $('.box').removeAttr('style')
         $('.container').removeClass('hidden')
+        $('#message').text('New Game!')
+        $('#message').removeClass()
+        $('.container').removeClass('hidden')
+        $('#message').addClass('success')
         store.gameInfo = responseData.game
         store.gameCells = responseData.game.cells
         console.log(store.gameInfo)
@@ -40,7 +45,7 @@ $(() => {
       .catch(console.log)
   })
   let over = false
-  const defaultState = function() {
+  const defaultState = function () {
     $('#alert').trigger('reset')
     turn = 0
     over = false
@@ -69,20 +74,6 @@ $(() => {
       $('#current-turn').text(`Its a Draw!New Game?`)
     }
   }
-
-  // const gameOver = () => {
-  //   if (gameOn === false) {
-  //     $('.box').off('click')
-  //   }
-  // }
-
-  // const reClickDisable = () => {
-  //   gameBoard.forEach((i) => {
-  //     if (i === 'X' || i === 'O') {
-  //       $(event.target).off('click')
-  //     }
-  //   })
-  // }
 
   // Checks the game board for win states
   const checkForWin = () => {
@@ -180,9 +171,9 @@ $(() => {
   $('.0').on('click', (event) => {
     console.log($(event.target).data('index'))
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 0)
       $(event.target).text(currentPlayer)
       gameBoard[0] = currentPlayer
+      $('#alert').text('')
       console.log(store.gameCells)
       turn++
       nextPlayer()
@@ -190,8 +181,9 @@ $(() => {
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
+    events.onUpdateGame(currentPlayer, 0, over)
   })
 
   $('.1').on('click', (event) => {
@@ -199,13 +191,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 1)
       $(event.target).text(currentPlayer)
       gameBoard[1] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -214,13 +207,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 2)
       $(event.target).text(currentPlayer)
       gameBoard[2] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -229,13 +223,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 3)
       $(event.target).text(currentPlayer)
       gameBoard[3] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -244,13 +239,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 4)
       $(event.target).text(currentPlayer)
       gameBoard[4] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -259,13 +255,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 5)
       $(event.target).text(currentPlayer)
       gameBoard[5] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -274,13 +271,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 6)
       $(event.target).text(currentPlayer)
       gameBoard[6] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -289,13 +287,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 7)
       $(event.target).text(currentPlayer)
       gameBoard[7] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 
@@ -304,13 +303,14 @@ $(() => {
       events.onUpdateGame(currentPlayer, 8)
       $(event.target).text(currentPlayer)
       gameBoard[8] = currentPlayer
+      $('#alert').text('')
       turn++
       nextPlayer()
       changePlayerTurn()
       checkRound()
       checkForWin()
     } else {
-      $('#alert').text('Invalid entry! Space Already Taken!').fadeIn().fadeOut(3000, 'linear')
+      $('#alert').text('Invalid entry!')
     }
   })
 })

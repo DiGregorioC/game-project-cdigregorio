@@ -1,22 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
 
 $alt-color: $cyan;
-$body-bg-color: $gray-200;
-$font-color: $light;
+$body-bg-color: #845;
+$font-color: #000;
+$header-text-color: #fff;
 
 body {
   background-color: $body-bg-color;
 }
 
-h4 {
+h1 {
+  align-items: center;
   display: flex;
-  justify-content: center;
-  width: 40rem;
+  text-decoration: underline;
+}
+
+h4 {
+  width: 50rem;
 }
 
 header {
   background-color: #222;
-  color: #fff;
+  color: $header-text-color;
   padding: 1rem;
 }
 
@@ -35,19 +40,36 @@ section {
 }
 
 .box {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 5vw;
   background-color: $secondary;
   border: 1px solid $white;
   color: $font-color;
-  display: flex;
   height: 80px;
-  justify-content: center;
   &:hover {
     background-color: #7ba6ed;
     cursor: pointer;
-
-
   }
+}
+
+.games {
+  width: 30rem;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.modal-body,
+.modal-title {
+  color: black;
+}
+
+.new-button {
+  width: 20rem;
 }
 
 .sign-up {
@@ -55,34 +77,19 @@ section {
   flex-direction: column;
 }
 
-.game {
-  display: flex;
-  width: 10rem;
-}
-
-.hidden {
-  display: none;
-}
-
-.new-game {
-  display: flex;
-  justify-content: center;
-  width: 40rem;
-}
-
 .success {
   color: #10a50b;
 }
 
 .user-controls {
+  background-color: #FFF;
   width: 30%;
-  background-color: #c7d6ca;
 }
 
 .warning {
   color: #F00;
 }
 
-.win{
+.win {
   background-color: green;
 }
