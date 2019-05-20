@@ -31,7 +31,6 @@ const onSignInSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
-  console.log('store is', store)
   store.user = responseData.user
 }
 const onSignInFailure = responseData => {
@@ -75,7 +74,6 @@ const onSignOutSuccess = responseData => {
 
 const onNewGameSuccess = responseData => {
   store.game = responseData.game
-  console.log('store is', store)
 }
 
 const onIndexSuccess = responseData => {
@@ -133,13 +131,7 @@ const onUpdateSuccess = responseData => {
   $('#message').removeClass()
   $('form').trigger('reset')
   store.game = responseData.game
-  console.log(store.game)
-  console.log(responseData, 'successful patch!')
 }
-
-//   let storeData = responseData.store.game
-//   console.log(storeData)
-// }
 
 module.exports = {
   onSignUpSuccess,

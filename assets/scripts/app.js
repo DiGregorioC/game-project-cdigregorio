@@ -8,7 +8,6 @@
 const events = require('./events.js')
 const store = require('./store.js')
 const api = require('./api.js')
-const ui = require('./api.js')
 $(() => {
   let currentPlayer = 'X'
   let gameBoard = ['', '', '', '', '', '', '', '', '']
@@ -29,6 +28,7 @@ $(() => {
     api.newGame()
       .then(function (responseData) {
         defaultState()
+        $('#game-index').html('')
         $('#win').text('')
         $('#alert').text('')
         $('.box').text('')
@@ -40,10 +40,9 @@ $(() => {
         $('#message').addClass('success')
         store.gameInfo = responseData.game
         store.gameCells = responseData.game.cells
-        console.log(store.gameInfo)
         store.id = responseData.game.id
+        $('#game-id').html(`Current Game ID: ${store.id}`)
       })
-      .catch(console.log)
   })
   let over = false
   const defaultState = function () {
@@ -72,7 +71,7 @@ $(() => {
   const checkRound = () => {
     if (turn >= 9) {
       over = true
-      $('#win').text(`Its a Draw!New Game?`)
+      $('#win').text(`Its a Draw! New Game?`)
     }
   }
 
@@ -83,7 +82,6 @@ $(() => {
     ) {
       $('#win').text('X Wins! New Game?')
       $('.0, .3, .6').css('background-color', 'green')
-
       over = true
       return over
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] && gameBoard[1] === 'X') {
@@ -171,12 +169,13 @@ $(() => {
   // which wants those two things, plus an over
   // store.game, can be used once its been defined. Can also use store.game.over, etc
   $('.0').on('click', (event) => {
-    console.log($(event.target).data('index'))
     if ($(event.target).text() === '' && over === false) {
       $(event.target).text(currentPlayer)
       gameBoard[0] = currentPlayer
       $('#alert').text('')
-      console.log(store.gameCells)
+      $('#game-index').html('')
+      $('#win').text('')
+      $('#alert').text('')
       turn++
       checkForWin()
       events.onUpdateGame(currentPlayer, 0, over)
@@ -193,6 +192,9 @@ $(() => {
       $(event.target).text(currentPlayer)
       gameBoard[1] = currentPlayer
       $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
+      $('#alert').text('')
       turn++
       checkForWin()
       events.onUpdateGame(currentPlayer, 1, over)
@@ -208,6 +210,9 @@ $(() => {
     if ($(event.target).text() === '' && over === false) {
       $(event.target).text(currentPlayer)
       gameBoard[2] = currentPlayer
+      $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
       $('#alert').text('')
       turn++
       checkForWin()
@@ -226,6 +231,9 @@ $(() => {
       $(event.target).text(currentPlayer)
       gameBoard[3] = currentPlayer
       $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
+      $('#alert').text('')
       turn++
       checkForWin()
       events.onUpdateGame(currentPlayer, 3, over)
@@ -242,6 +250,9 @@ $(() => {
       events.onUpdateGame(currentPlayer, 4, over)
       $(event.target).text(currentPlayer)
       gameBoard[4] = currentPlayer
+      $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
       $('#alert').text('')
       turn++
       checkForWin()
@@ -260,6 +271,9 @@ $(() => {
       $(event.target).text(currentPlayer)
       gameBoard[5] = currentPlayer
       $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
+      $('#alert').text('')
       turn++
       checkForWin()
       events.onUpdateGame(currentPlayer, 5, over)
@@ -276,6 +290,9 @@ $(() => {
       events.onUpdateGame(currentPlayer, 6, over)
       $(event.target).text(currentPlayer)
       gameBoard[6] = currentPlayer
+      $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
       $('#alert').text('')
       turn++
       checkForWin()
@@ -294,6 +311,9 @@ $(() => {
       $(event.target).text(currentPlayer)
       gameBoard[7] = currentPlayer
       $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
+      $('#alert').text('')
       turn++
       checkForWin()
       events.onUpdateGame(currentPlayer, 7, over)
@@ -310,6 +330,9 @@ $(() => {
       events.onUpdateGame(currentPlayer, 8, over)
       $(event.target).text(currentPlayer)
       gameBoard[8] = currentPlayer
+      $('#alert').text('')
+      $('#game-index').html('')
+      $('#win').text('')
       $('#alert').text('')
       turn++
       checkForWin()

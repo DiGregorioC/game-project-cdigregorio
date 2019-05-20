@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 $alt-color: $cyan;
-$body-bg-color: #845;
+$body-bg-color: #ffce7c;
 $font-color: #000;
 $header-text-color: #fff;
 
@@ -20,7 +20,7 @@ h4 {
 }
 
 h6 {
-  color: $header-text-color;
+  color: #8c7cff;
 }
 
 header {
@@ -36,7 +36,7 @@ main {
 
 table,
 td {
-  background-color: $secondary;
+  background-color: #8c7cff;
   border: 1px solid $white;
   color: $font-color;
   padding: 10px;
@@ -60,7 +60,7 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 5vw;
-  background-color: $secondary;
+  background-color: #8c7cff;
   border: 1px solid $white;
   color: $font-color;
   height: 80px;
@@ -98,8 +98,9 @@ section {
 }
 
 .user-controls {
-  background-color: #FFF;
-  width: 30%;
+  background-color: #ff8c7c;
+  width: 20vh;
+  border-right: 1px solid black;
 }
 
 .warning {
