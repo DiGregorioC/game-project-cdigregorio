@@ -44,7 +44,7 @@ $(() => {
   let over = false
   const defaultState = function () {
     $('#alert').trigger('reset')
-    turn = 0
+    turn = 1
     over = false
     currentPlayer = 'X'
     gameBoard = ['', '', '', '', '', '', '', '', '']
@@ -66,7 +66,7 @@ $(() => {
   }
 
   const checkRound = () => {
-    if (turn >= 9 && over === false) {
+    if (turn > 9 && over === false) {
       over = true
       $('#win').text(`Its a Draw! New Game?`)
       $('.cur-turn').addClass('hidden')
