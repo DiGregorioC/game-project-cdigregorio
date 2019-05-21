@@ -211,7 +211,6 @@ $(() => {
       events.onUpdateGame(currentPlayer, over, 1)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -227,11 +226,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-            checkRound()
+      checkRound()
       events.onUpdateGame(currentPlayer, over, 2)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -247,11 +245,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-            checkRound()
+      checkRound()
       events.onUpdateGame(currentPlayer, over, 3)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -267,11 +264,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-            checkRound()
+      checkRound()
       events.onUpdateGame(currentPlayer, over, 4)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -287,11 +283,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-            checkRound()
+      checkRound()
       events.onUpdateGame(currentPlayer, over, 5)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -307,11 +302,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-            checkRound()
+      checkRound()
       events.onUpdateGame(currentPlayer, over, 6)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -331,7 +325,6 @@ $(() => {
       events.onUpdateGame(currentPlayer, over, 7)
       nextPlayer()
       changePlayerTurn()
-
     } else {
       $('#alert').text('Invalid entry!')
     }
