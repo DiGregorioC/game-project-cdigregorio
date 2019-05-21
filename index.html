@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CDiGregorio Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <header>
+    <h3>CDiGregorio: Tic Tac Toe</h3>
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#projectInfoModal">
+  About the Project
+</button>
+<div class="modal fade" id="projectInfoModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aboutModal">About The Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        At a high level, here are the goals developers had for this project:
+        <ul>
+          <br>
+          <li>Build a web application from scratch, without a starter codebase</li>
+        <li>Use your programming skills to map out the game logic for a simple game like Tic Tac Toe</li>
+        <li>Separate HTML, CSS, and JavaScript files in your application</li>
+        <li>Build an application to a spec that someone else gives you</li>
+        <li>Build a dynamic game that allows a user to play tic tac toe against themself</li>
+        <li>Craft a readme.md file that explains your app to the world</li>
+        <li>Communicate with a back-end to store the state of your game</li>
+      </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#aboutMeModal">
+  About the Engineer
+</button>
+<div class="modal fade" id="aboutMeModal" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aboutModal">About The Engineer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Cameron DiGregorio is a Software Engineering Fellow at General Assembly
+          <a href="https://www.linkedin.com/in/cdigregorio/"target="_blank">View My LinkedIn</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+  <main>
+    <section class="user-controls col-2">
+
+      <h5 id='message'>Welcome! </h5>
+      <form id="sign-up">
+        <h3> Sign Up </h3>
+        <div class="dropdown">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseExample">
+              Sign Up ⇩
+          </button>
+          <div class="collapse" id="collapseSignUp">
+        <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address" required>
+        <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
+        <input type="password" class="form-control" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+        <input  class="btn btn-primary" type="submit" value="Sign Up" />
+      </div>
+      </div>
+      </form>
+      <br>
+
+      <form id="sign-in">
+        <h3> Sign In </h3>
+        <div class="dropdown">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseExample">
+            Sign In ⇩
+        </button>
+        <div class="collapse" id="collapseSignIn">
+          <input type="text" class="form-control" name="credentials[email]" placeholder="Enter Email Address" required>
+          <input type="password" class="form-control" name="credentials[password]" placeholder="Password" required>
+          <input class="btn btn-primary" type="submit" value="Sign In" />
+      </div>
+      </div>
+      </form>
+
+      <form class="hidden" id='index-games'>
+        <h4>Show Game History</h4>
+        <input type="submit" class="btn btn-info" value="Show Games History" />
+      </form>
+      <br>
+
+      <form class="hidden" id="show-game">
+        <h4>View a Game Record</h4>
+        <input type="number" class="form-control" name="games[id]" placeholder="Enter Game Id" required>
+        <input type="submit" class="btn btn-info" value="Find a Game" />
+      </form>
+      <br>
+
+      <form class="hidden" id='change-pw'>
+        <h4>Change Password</h4>
+        <input type='password' class="form-control" name="passwords[old]" placeholder="Current Password" required/>
+        <input type='password' class="form-control" name="passwords[new]" placeholder="New Password" required/>
+        <input type="submit" class="btn btn-info" value="Change Password" />
+      </form>
+      <br>
+
+      <form class="hidden" id='sign-out'>
+        <h4>Sign Out</h4>
+        <input type="submit" class="btn btn-danger" value="Sign Out" />
+      </form>
+      <br>
+
+    </section>
+    <br>
+    <section class="game text-center"></section>
+    <div class="games text-center offset-2">
+      <h1 class="welcome">Welcome to Tic-Tac-Toe!</h1>
+        <h2 class="welcome">Please Sign in To Play!</h2>
+        <img class="welcome rounded image" src="https://free-images.com/sm/5f9d/tic_tac_toe_noughts.jpg" alt="picture of tic-tac-toe" />
+      <div class="row offset-2">
+      <input class="hidden new-button btn-success rounded" type="submit" id="new-game" value="New Game" />
+    </div>
+    <br>
+      <div class="container hidden">
+
+        <div class="row">
+          <div class="0 col-4 box primary-color rounded" data-index="0"></div>
+          <div class="1 col-4 box primary-color rounded" ></div>
+          <div class="2 col-4 box primary-color rounded"></div>
+        </div>
+
+        <div class="row">
+          <div class="3 col-4 box primary-color rounded"></div>
+          <div class="4 col-4 box primary-color rounded"></div>
+          <div class="5 col-4 box primary-color rounded"></div>
+        </div>
+
+        <div class="row">
+          <div class="6 col-4 box primary-color rounded"></div>
+          <div class="7 col-4 box primary-color rounded"></div>
+          <div class="8 col-4 box primary-color rounded"></div>
+        </div>
+        <br>
+          <h6 id="game-id"></h6>
+          <h4 class="cur-turn offset-4" id="current-turn"></h4>
+          <h4 class="win offset-4" id="win"></h4>
+        <hr>
+      </div>
+      <div class="row new-game-results hidden offset-2 text-left">
+        <br>
+        <h4 class="warning offset-3" id="alert"></h4>
+        <hr>
+        <h6 id="game-index" class="offset-3"></h6>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>
