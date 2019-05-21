@@ -70,6 +70,7 @@ $(() => {
       over = true
       $('#win').text(`Its a Draw! New Game?`)
       $('.cur-turn').addClass('hidden')
+      return over
     }
   }
 
@@ -187,10 +188,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 0, over)
+      checkRound()
+      events.onUpdateGame(currentPlayer, over, 0)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -206,10 +207,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 1, over)
+      checkRound()
+      events.onUpdateGame(currentPlayer, over, 1)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -225,10 +227,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 2, over)
+            checkRound()
+      events.onUpdateGame(currentPlayer, over, 2)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -236,7 +239,6 @@ $(() => {
 
   $('.3').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 3, over)
       $(event.target).text(currentPlayer)
       gameBoard[3] = currentPlayer
       $('#alert').text('')
@@ -245,10 +247,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 3, over)
+            checkRound()
+      events.onUpdateGame(currentPlayer, over, 3)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -256,7 +259,6 @@ $(() => {
 
   $('.4').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 4, over)
       $(event.target).text(currentPlayer)
       gameBoard[4] = currentPlayer
       $('#alert').text('')
@@ -265,10 +267,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 4, over)
+            checkRound()
+      events.onUpdateGame(currentPlayer, over, 4)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -276,7 +279,6 @@ $(() => {
 
   $('.5').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 5, over)
       $(event.target).text(currentPlayer)
       gameBoard[5] = currentPlayer
       $('#alert').text('')
@@ -285,10 +287,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 5, over)
+            checkRound()
+      events.onUpdateGame(currentPlayer, over, 5)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -296,7 +299,6 @@ $(() => {
 
   $('.6').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 6, over)
       $(event.target).text(currentPlayer)
       gameBoard[6] = currentPlayer
       $('#alert').text('')
@@ -305,10 +307,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 6, over)
+            checkRound()
+      events.onUpdateGame(currentPlayer, over, 6)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -316,7 +319,6 @@ $(() => {
 
   $('.7').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 7, over)
       $(event.target).text(currentPlayer)
       gameBoard[7] = currentPlayer
       $('#alert').text('')
@@ -325,10 +327,11 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 7, over)
+      checkRound()
+      events.onUpdateGame(currentPlayer, over, 7)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
+
     } else {
       $('#alert').text('Invalid entry!')
     }
@@ -336,7 +339,6 @@ $(() => {
 
   $('.8').on('click', (event) => {
     if ($(event.target).text() === '' && over === false) {
-      events.onUpdateGame(currentPlayer, 8, over)
       $(event.target).text(currentPlayer)
       gameBoard[8] = currentPlayer
       $('#alert').text('')
@@ -345,10 +347,10 @@ $(() => {
       $('#alert').text('')
       turn++
       checkForWin()
-      events.onUpdateGame(currentPlayer, 8, over)
+      checkRound()
+      events.onUpdateGame(currentPlayer, over, 8)
       nextPlayer()
       changePlayerTurn()
-      checkRound()
     } else {
       $('#alert').text('Invalid entry!')
     }

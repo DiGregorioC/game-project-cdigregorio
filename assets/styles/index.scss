@@ -103,6 +103,10 @@ section {
   opacity: .5;
 }
 
+.jumbotron {
+  background-color: $hover-color;
+}
+
 .modal-body,
 .modal-title {
   color: $font-color;

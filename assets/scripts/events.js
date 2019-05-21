@@ -46,8 +46,8 @@ const onNewGame = event => {
     .catch(ui.onNewGameFailure)
 }
 
-const onUpdateGame = (value, index, status) => {
-  api.updateGame(value, index, status)
+const onUpdateGame = (value, status, index) => {
+  api.updateGame(value, status, index)
     .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }

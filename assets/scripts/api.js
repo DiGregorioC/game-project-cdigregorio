@@ -50,7 +50,7 @@ const newGame = formData => {
   })
 }
 
-const updateGame = (value, index, status) => {
+const updateGame = (value, status, index) => {
   return $.ajax({
     url: config.apiUrl + `/games/` + store.id,
     method: 'PATCH',
